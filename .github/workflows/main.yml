@@ -1,16 +1,15 @@
 name: linting, testing, building
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on:
   push:
-    branches: [main]
+    branches: [ main ]
   pull_request:
-    branches: [main]
+    branches: [ main ]
 jobs:
   pipeline:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [17.x]
+        node-version: [ 17.x ]
 
     steps:
       - uses: actions/checkout@v2
@@ -22,11 +21,14 @@ jobs:
         run: npm install
       - name: build production project
         run: npm run build:prod
-      if: always()
+        if: always()
       - name: linting typescript
         run: npm run lint:ts
+        if: always()
       - name: unit testing
-      if: always()
         run: npm run test:unit
+        if: always()
       - name: build storybook
         run: npm run storybook:build
+        if: always()
+
