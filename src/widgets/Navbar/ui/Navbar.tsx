@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
@@ -22,6 +22,12 @@ export const Navbar = ({ className }: NavbarProps) => {
         setIsAuthModal(false);
     }, []);
 
+    useEffect(() => {
+        if (authData) {
+            setIsAuthModal(false);
+        }
+    }, [authData]);
+
     const onShowModal = useCallback(() => {
         setIsAuthModal(true);
     }, []);
@@ -40,7 +46,7 @@ export const Navbar = ({ className }: NavbarProps) => {
                 >
                     {t('Выйти')}
                 </Button>
-                <LoginModal onClose={onCloseModal} isOpen={isAuthModal} />
+                {isAuthModal && <LoginModal onClose={onCloseModal} isOpen={isAuthModal} />}
             </div>
         );
     }
