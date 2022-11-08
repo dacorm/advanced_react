@@ -7,6 +7,7 @@ import { memo, useCallback } from 'react';
 import { loginByUsername } from 'features/AuthByUsername/model/services/loginByUsername/loginByUsername';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { AppDispatch } from 'app/providers/StoreProvider/config/store';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword';
 import { getLoginLoading } from '../../model/selectors/getLoginLoading';
@@ -24,7 +25,7 @@ const initialReducers: ReducersList = {
 
 const LoginForm = memo(({ className }: LoginFormProps) => {
     const { t } = useTranslation();
-    const dispatch = useDispatch<any>();
+    const dispatch = useDispatch<AppDispatch>();
     const username = useSelector(getLoginUsername);
     const password = useSelector(getLoginPassword);
     const isLoading = useSelector(getLoginLoading);

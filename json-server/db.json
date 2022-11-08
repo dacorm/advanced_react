@@ -15,5 +15,14 @@
       "password": "123"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "first": "Denis",
+    "lastname": "Utkin",
+    "age": "19",
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "Moscow",
+    "username": "dacorm",
+    "avatar": "https://sun9-33.userapi.com/impf/c831408/v831408538/54d28/dfYOnVk2veA.jpg?size=439x600&quality=96&sign=ba495e5220158f93e1701d4c8ebd2a51&type=album"
+  }
 }
