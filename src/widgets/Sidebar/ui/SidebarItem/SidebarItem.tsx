@@ -1,8 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
-import HomeIcon from 'shared/assets/icons/home.svg';
 import { SidebarItemType } from 'widgets/Sidebar/model/items';
 import cls from './SidebarItem.module.scss';
 
