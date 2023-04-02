@@ -28,3 +28,19 @@
   justify-content: center;
   height: 300px;
 }
+
+.avatar {
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+}
+
+.editing {
+  border: 2px solid var(--inverted-primary-color);
+}
+
+.avatarWrapper {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}

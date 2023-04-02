@@ -1,12 +1,32 @@
 {
   "posts": [
-    { "id": "1", "title": "json-server", "author": "den" },
-    { "id": "2", "title": "json-server", "author": "denis" },
-    { "id": "3", "title": "json-server", "author": "typicode" },
-    { "id": "4", "title": "json-server", "author": "typicode" }
+    {
+      "id": "1",
+      "title": "json-server",
+      "author": "den"
+    },
+    {
+      "id": "2",
+      "title": "json-server",
+      "author": "denis"
+    },
+    {
+      "id": "3",
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": "4",
+      "title": "json-server",
+      "author": "typicode"
+    }
   ],
   "comments": [
-    { "id": "1", "body": "some comment", "postId": 1 }
+    {
+      "id": "1",
+      "body": "some comment",
+      "postId": 1
+    }
   ],
   "users": [
     {
@@ -18,7 +38,7 @@
   "profile": {
     "first": "Denis",
     "lastname": "Utkin",
-    "age": "19",
+    "age": 20,
     "currency": "RUB",
     "country": "Russia",
     "city": "Moscow",
