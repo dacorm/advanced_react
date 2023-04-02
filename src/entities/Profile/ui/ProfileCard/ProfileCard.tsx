@@ -68,7 +68,7 @@ export const ProfileCard = ({
             <div className={cls.data}>
                 {data?.avatar && (
                     <div className={cls.avatarWrapper}>
-                        <Avatar alt="user avatar" src={data.avatar} size={200} />
+                        <Avatar alt={t('Аватарка')} src={data.avatar} size={200} />
                     </div>
                 )}
                 <Input
