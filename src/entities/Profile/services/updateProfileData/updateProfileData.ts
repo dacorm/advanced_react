@@ -1,12 +1,19 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import i18n from 'shared/config/i18n/i18n';
 import { ThunkConfig } from 'app/providers/StoreProvider/config/StateSchema';
 import { getProfileForm, Profile } from 'entities/Profile';
+import { validateProfile } from 'entities/Profile/services/validateProfile/validateProfile';
+import { ValidateProfileError } from 'entities/Profile/model/types/profile';
 
-export const updateProfileData = createAsyncThunk<Profile, void, ThunkConfig<string>>(
+export const updateProfileData = createAsyncThunk<Profile, void, ThunkConfig<ValidateProfileError[]>>(
     'profile/updateProfileData',
     async (_, { extra, rejectWithValue, getState }) => {
         const formData = getProfileForm(getState());
+
+        const errors = validateProfile(formData);
+
+        if (errors?.length) {
+            return rejectWithValue(errors);
+        }
 
         try {
             const response = await extra.api.put<Profile>('/profile', formData);
@@ -14,7 +21,7 @@ export const updateProfileData = createAsyncThunk<Profile, void, ThunkConfig<str
             return response.data;
         } catch (e) {
             console.log(e);
-            return rejectWithValue(i18n.t('Вы ввели неверный логин или пароль'));
+            return rejectWithValue([ValidateProfileError.SERVER_ERROR]);
         }
     },
 );

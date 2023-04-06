@@ -24,5 +24,10 @@
   "Сохранить": "Save",
   "Страница не найдена": "Page was not found",
   "Форма авторизации": "Auth form",
-  "Вы ввели неверный логин или пароль": "You entered wrong login or password"
+  "Вы ввели неверный логин или пароль": "You entered wrong login or password",
+  "Ошибка сервера": "Server error",
+  "Неверная страна": "Incorrect country",
+  "Некорректный возраст": "Incorrect age",
+  "Некорректные данные пользователя": "Incorrect user data",
+  "Нет данных": "No data"
 }
