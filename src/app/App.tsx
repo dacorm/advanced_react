@@ -5,16 +5,19 @@ import { AppRouter } from 'app/providers/router';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserInitiedFlag, userActions } from 'entities/User';
+import { getUserAuthData, getUserInitiedFlag, userActions } from 'entities/User';
 
 function App() {
     const { theme } = useTheme();
     const dispatch = useDispatch();
+    const user = useSelector(getUserAuthData)?.id;
     const inited = useSelector(getUserInitiedFlag);
 
     useEffect(() => {
-        dispatch(userActions.initAuthData());
-    }, []);
+        if (!user) {
+            dispatch(userActions.initAuthData());
+        }
+    }, [user]);
 
     return (
         <div className={classNames('app', {}, [theme])}>

@@ -9,7 +9,7 @@ interface RequireAuthProps {
 }
 
 export const RequireAuth: FC<RequireAuthProps> = ({ children }) => {
-    const auth = useSelector(getUserAuthData);
+    const auth = useSelector(getUserAuthData)?.id;
     const location = useLocation();
 
     if (!auth) {
